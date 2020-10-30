@@ -42,7 +42,7 @@ function operate(a, b, operator) {
 }
 //populates the display
 function populateDisplay(currentNumber) {
-    if (parseFloat(secondNumber) == 0 && operator1=='/') {
+    if (parseFloat(secondNumber) == 0 && operator1 == '/') {
         //display.textContent = 'Um..no?';
         alert(`Can't divide by zero, try again.`);
         return firstNumber;
@@ -112,8 +112,13 @@ calculatorButtons.forEach((button) =>
         }
         //recognizes input is a number
         else {
-            array.push(button.textContent);
-            display.textContent = array.join('');
+            if (array.length == 10) {
+                alert(`Memory is full! Can't input anymore numbers!`);
+            }
+            else {
+                array.push(button.textContent);
+                display.textContent = array.join('');
+            }
         }
     }));
 //I know this is bad practice in coding but I kinda wanna keep on going with the tutorial,
@@ -153,7 +158,12 @@ document.onkeypress = function (e) {
     }
     //recognizes input is a number
     else {
-        array.push(keyPressed);
-        display.textContent = array.join('');
+        if (array.length == 10) {
+            alert(`Memory is full! Can't input anymore numbers!`);
+        }
+        else {
+            array.push(keyPressed);
+            display.textContent = array.join('');
+        }
     }
 };
