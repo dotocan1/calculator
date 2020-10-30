@@ -42,7 +42,7 @@ function operate(a, b, operator) {
 }
 //populates the display
 function populateDisplay(currentNumber) {
-    if (parseFloat(secondNumber) == 0) {
+    if (parseFloat(secondNumber) == 0 && operator1=='/') {
         //display.textContent = 'Um..no?';
         alert(`Can't divide by zero, try again.`);
         return firstNumber;
